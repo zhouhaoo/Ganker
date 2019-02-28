@@ -1,0 +1,43 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/detail/detail",
+    "pages/category/category",
+    "pages/collection/collection",
+    "pages/search/search"
+  ],
+  "tabBar": {
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/nav/new_off.png",
+        "selectedIconPath": "images/nav/new_on.png",
+        "text": "最新"
+      },
+      {
+        "pagePath": "pages/category/category",
+        "iconPath": "images/nav/type_off.png",
+        "selectedIconPath": "images/nav/type_on.png",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/collection/collection",
+        "iconPath": "images/nav/collection_off.png",
+        "selectedIconPath": "images/nav/collection_on.png",
+        "text": "收藏"
+      }
+    ]
+  },
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#1296db",
+    "navigationStyle": "custom",
+    "navigationBarTitleText": "Ganker",
+    "navigationBarTextStyle": "white"
+  }
+}
