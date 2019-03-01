@@ -1,0 +1,20 @@
+
+var tools={
+  sub: function (length, val) {
+    if (val.length == 0 || val == undefined) {
+      return;
+    }
+    if (val.length > length) {
+      return val.substring(0, length);
+    } else {
+      return val;
+    }
+  }
+}
+
+
+
+
+module.exports = {
+  dataTool: tools.sub
+}

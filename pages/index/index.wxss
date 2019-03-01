@@ -2,3 +2,9 @@
 .card-swiper {
   height: 480rpx;
 }
+.margin-bottom {
+  margin-bottom: 0.1rpx;
+}
+.padding-top-sm {
+  padding-top: 20rpx;
+}
