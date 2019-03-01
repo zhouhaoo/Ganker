@@ -1,6 +1,30 @@
 <!--pages/category/category.wxml-->
+<wxs module="tools" src="../../tools/dataTool.wxs"></wxs>
 <view class="cu-custom" style="height:{{CustomBar}}px;">
   <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
   <view class='content text-bold' style='top:{{StatusBar}}px;'>分类</view>
   </view>
+</view>
+<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{tabs}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{tabs[index]}}
+  </view>
+</scroll-view>
+<view>
+  <block wx:for="{{results}}" wx:for-item="item" wx:key="{{item._id}}">
+    <view class="cu-card article margin-top no-card">
+      <view class="cu-item shadow padding-top ">
+        <view class="content ">
+          <image wx:if="{{item.images!=null}}" src="{{item.images[0]}}" mode="aspectFill"></image>
+          <view class="desc ">
+            <view class='text-content '>{{item.desc}}</view>
+            <view>
+              <view class='cu-tag bg-red light sm round'>{{item.who}}</view>
+              <view class='cu-tag bg-green light sm round'>{{tools.dataTool(10,item.publishedAt)}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    </block>
 </view>

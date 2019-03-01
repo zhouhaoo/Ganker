@@ -20,10 +20,10 @@
   <block wx:for="{{results[title]}}" wx:for-item="item" wx:key="{{item._id}}">
     <view class="cu-card article margin-bottom no-card">
       <view class="cu-item shadow padding-top ">
-        <view class="content">
-          <image src="{{item.images[0]}}" mode="aspectFill"></image>
-          <view class="desc">
-            <view class='text-content'>{{item.desc}}</view>
+        <view class="content ">
+          <image wx:if="{{item.images!=null}}" src="{{item.images[0]}}" mode="aspectFill"></image>
+          <view class="desc ">
+            <view class='text-content '>{{item.desc}}</view>
             <view>
               <view class='cu-tag bg-red light sm round'>{{item.who}}</view>
               <view class='cu-tag bg-green light sm round'>{{tools.dataTool(10,item.publishedAt)}}</view>

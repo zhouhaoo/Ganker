@@ -61,6 +61,10 @@ module.exports = {
   //category 后面可接受参数 all | Android | iOS | 休息视频 | 福利 | 拓展资源 | 前端 | 瞎推荐 | App
   // count 最大 50
   search: () => {
-    return request('/search/query/listview/category','get')
+    return request('/search/query/listview/category', 'get')
   },
+  // http://gank.io/api/data/福利/10/1
+  category: (category,page) => {
+    return request('/data/'+category+'/20/'+page, 'get')
+  }
 }
