@@ -5,7 +5,8 @@
     "pages/detail/detail",
     "pages/category/category",
     "pages/collection/collection",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/mine/about"
   ],
   "tabBar": {
     "color": "#8a8a8a",
@@ -30,6 +31,12 @@
         "iconPath": "images/nav/collection_off.png",
         "selectedIconPath": "images/nav/collection_on.png",
         "text": "收藏"
+      },
+      {
+        "pagePath": "pages/mine/about",
+        "iconPath": "images/nav/about_off.png",
+        "selectedIconPath": "images/nav/about_on.png",
+        "text": "关于"
       }
     ]
   },

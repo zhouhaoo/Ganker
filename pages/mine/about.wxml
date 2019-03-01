@@ -1,0 +1,6 @@
+<!--pages/mine/about.wxml-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content text-bold' style='top:{{StatusBar}}px;'>关于</view>
+  </view>
+</view>
