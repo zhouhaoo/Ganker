@@ -1,6 +1,10 @@
 //app.js
 App({
   onLaunch: function() {
+    wx.cloud.init({
+      traceUser: true,
+      env: 'gank-test-5bade0'
+    }),
     // 获取系统状态栏信息
     wx.getSystemInfo({
       success: e => {

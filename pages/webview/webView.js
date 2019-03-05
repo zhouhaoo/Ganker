@@ -1,5 +1,4 @@
-// pages/collection/collection.js
-var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
+// pages/webview/webView.js
 const app = getApp()
 Page({
 
@@ -9,10 +8,32 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    results: []
+    Custom: app.globalData.Custom,
+    isloading: true,
+    data: {},
+    timer: undefined
   },
-  onLoad: function() {
-  
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    console.log(options)
+    const data = JSON.parse(options.data)
+    this.setData({
+      data:data
+    })
+   
+    console.log(data)
+    const that = this
+    const db = wx.cloud.database()
+    db.collection('collects').add({
+      data:data,
+      success(res) {
+        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+        console.log(res)
+      }
+    })
   },
 
   /**
@@ -26,17 +47,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    const db = wx.cloud.database()
-    const that = this
-    db.collection('collects').orderBy('_id', 'desc').get({
-      success(res) {
-        console.log(res)
-        that.setData({
-          results: res.data
-        })
 
-      }
-    })
   },
 
   /**

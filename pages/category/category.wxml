@@ -2,7 +2,7 @@
 <wxs module="tools" src="../../tools/dataTool.wxs"></wxs>
 <view class="cu-custom" style="height:{{CustomBar}}px;">
   <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
-  <view class='content text-bold' style='top:{{StatusBar}}px;'>分类</view>
+    <view class='content text-bold' style='top:{{StatusBar}}px;'>分类</view>
   </view>
 </view>
 <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
@@ -10,12 +10,12 @@
     {{tabs[index]}}
   </view>
 </scroll-view>
-<scroll-view scroll-y>
+<view>
   <block wx:for="{{results}}" wx:for-item="item" wx:key="{{item._id}}">
     <view class="cu-card article margin-top no-card">
       <view class="cu-item shadow padding-top ">
         <view class="content ">
-          <image wx:if="{{item.images!=null}}"  data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
+          <image wx:if="{{item.images!=null}}" data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
           <view class="desc ">
             <view class='text-content '>{{item.desc}}</view>
             <view>
@@ -26,5 +26,5 @@
         </view>
       </view>
     </view>
-    </block>
-</scroll-view>
+  </block>
+</view>

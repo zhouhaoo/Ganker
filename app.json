@@ -6,7 +6,8 @@
     "pages/category/category",
     "pages/collection/collection",
     "pages/search/search",
-    "pages/mine/about"
+    "pages/mine/about",
+    "pages/webview/webView"
   ],
   "tabBar": {
     "color": "#8a8a8a",

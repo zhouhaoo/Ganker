@@ -1,0 +1,12 @@
+<!--pages/webview/webView.wxml-->
+
+
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-back'></text>
+      <text class='icon-homefill'></text>
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>{{data.desc}}</view>
+  </view>
+</view>

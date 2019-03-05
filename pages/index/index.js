@@ -25,54 +25,6 @@ Page({
       "福利",
       "前端"
     ],
-    android: [{
-        "_id": "5c0622429d2122308e7445cf",
-        "createdAt": "2018-12-04T06:44:18.364Z",
-        "desc": "一个基于ijkplayer的完整视频播放器封装，支持自定义，拓展性强，已经用于实际开发中",
-        "images": [
-          "http://img.gank.io/0cd8baa4-7d96-40fb-ab0c-4b3668a7ac4d",
-          "http://img.gank.io/35066fc9-4c67-498d-b9e1-f8e3ca7410e1",
-          "http://img.gank.io/ad8b369e-c643-4631-afdd-4466aab4f7fd",
-          "http://img.gank.io/101d45df-c66b-4610-809a-734fbca99967",
-          "http://img.gank.io/d8755a02-fe71-4562-ac9f-4d7d6b0d3358"
-        ],
-        "publishedAt": "2019-02-13T03:26:06.640Z",
-        "source": "web",
-        "type": "Android",
-        "url": "https://github.com/yangchong211/YCVideoPlayer",
-        "used": true,
-        "who": "fingdo"
-      },
-      {
-        "_id": "5c2df1479d2122759a04b597",
-        "createdAt": "2019-01-03T11:25:59.115Z",
-        "desc": "Android 一键加入侧滑返回 (类似“小米MIX”和新版“即刻”滑动返回)",
-        "images": [
-          "https://ww1.sinaimg.cn/large/0073sXn7ly1fze96rdfhmg308w0ft7wh",
-          "https://ww1.sinaimg.cn/large/0073sXn7ly1fze96s6tdag308w0ftjvw"
-        ],
-        "publishedAt": "2019-01-21T00:00:00.0Z",
-        "source": "web",
-        "type": "Android",
-        "url": "https://github.com/qinci/AndroidSlideBack",
-        "used": true,
-        "who": "qinci"
-      },
-      {
-        "_id": "5c30271a9d2122759a04b59d",
-        "createdAt": "2019-01-05T03:40:10.216Z",
-        "desc": "一个漂亮的卡片式切换菜单",
-        "images": [
-          "https://ww1.sinaimg.cn/large/0073sXn7ly1fze96t2usdg30m80gogrr"
-        ],
-        "publishedAt": "2019-01-21T00:00:00.0Z",
-        "source": "web",
-        "type": "Android",
-        "url": "https://github.com/notice501/coolMenu",
-        "used": true,
-        "who": "foocoder"
-      }
-    ],
     images: [{
         "_id": "5c4578db9d212264d4501d40",
         "createdAt": "2019-01-21T07:46:35.304Z",
@@ -1229,6 +1181,7 @@ Page({
   onReady: function() {
 
   },
+  //item 图片
   onTabsItemTap: function(event) {
     wx.previewImage({
       current: event.currentTarget.dataset.gid[0], // 当前显示图片的http链接
@@ -1246,6 +1199,15 @@ Page({
       urls: urls // 需要预览的图片http链接列表
     })
   },
+  //跳转详情页
+  onItemClick: function(event) {
+    let data = JSON.stringify(event.currentTarget.dataset.gid)
+    let url = '../webview/webView?data=' + data
+    wx.navigateTo({
+      url: url
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */
@@ -1286,12 +1248,6 @@ Page({
    */
   onShareAppMessage: function() {
 
-  },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
   },
 
 })
