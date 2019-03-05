@@ -12,9 +12,9 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.5.2",
-	"appid": "wx9689b5dc600f477b",
-	"projectname": "ganker",
+	"libVersion": "2.6.1",
+	"appid": "wxbb7a39ff2dde8d72",
+	"projectname": "Ganker",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

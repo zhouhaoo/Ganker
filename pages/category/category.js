@@ -70,7 +70,14 @@ Page({
   onReady: function() {
 
   },
-
+  onTabsItemTap: function (event) {
+    console.log(event)
+    wx.previewImage({
+      current: event.currentTarget.dataset.gid[0], // 当前显示图片的http链接
+      urls: event.currentTarget.dataset.gid // 需要预览的图片http链接列表
+    })
+  }
+  ,
   /**
    * 生命周期函数--监听页面显示
    */

@@ -6,7 +6,7 @@
   </view>
 </view>
 <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
-  <swiper-item wx:for="{{images}}" wx:for-item="item" wx:key class="{{cardCur==index?'cur':''}}">
+  <swiper-item wx:for="{{images}}" data-gid='{{images}}' bindtap="onBannerItemTap"wx:for-item="item" wx:key class="{{cardCur==index?'cur':''}}" id="{{index}}">
     <view class='bg-img shadow-blur' style="background-image:url({{item.url}})"></view>
   </swiper-item>
 </swiper>
@@ -21,7 +21,7 @@
     <view class="cu-card article margin-bottom no-card">
       <view class="cu-item shadow padding-top ">
         <view class="content ">
-          <image wx:if="{{item.images!=null}}" src="{{item.images[0]}}" mode="aspectFill"></image>
+          <image wx:if="{{item.images!=null}}" data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
           <view class="desc ">
             <view class='text-content '>{{item.desc}}</view>
             <view>

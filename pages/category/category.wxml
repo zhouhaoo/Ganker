@@ -10,12 +10,12 @@
     {{tabs[index]}}
   </view>
 </scroll-view>
-<view>
+<scroll-view scroll-y>
   <block wx:for="{{results}}" wx:for-item="item" wx:key="{{item._id}}">
     <view class="cu-card article margin-top no-card">
       <view class="cu-item shadow padding-top ">
         <view class="content ">
-          <image wx:if="{{item.images!=null}}" src="{{item.images[0]}}" mode="aspectFill"></image>
+          <image wx:if="{{item.images!=null}}"  data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
           <view class="desc ">
             <view class='text-content '>{{item.desc}}</view>
             <view>
@@ -27,4 +27,4 @@
       </view>
     </view>
     </block>
-</view>
+</scroll-view>

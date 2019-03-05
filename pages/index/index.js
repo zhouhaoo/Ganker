@@ -6,7 +6,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    DotStyle:true,
+    DotStyle: true,
     cardCur: 0,
     indicatorDots: true,
     indicatorActiveColor: '#1296db',
@@ -108,8 +108,7 @@ Page({
       }
     ],
     results: {
-      "Android": [
-        {
+      "Android": [{
           "_id": "5c0622429d2122308e7445cf",
           "createdAt": "2018-12-04T06:44:18.364Z",
           "desc": "一个基于ijkplayer的完整视频播放器封装，支持自定义，拓展性强，已经用于实际开发中",
@@ -428,8 +427,7 @@ Page({
           "who": "fingdo"
         }
       ],
-      "App": [
-        {
+      "App": [{
           "_id": "5c31d8a79d21222bd38ce73e",
           "createdAt": "2019-01-06T10:29:59.746Z",
           "desc": "flutter开发的干货集中营客户端",
@@ -532,8 +530,7 @@ Page({
           "who": "lijinshanmx"
         }
       ],
-      "iOS": [
-        {
+      "iOS": [{
           "_id": "58e98313421aa9544b773f9d",
           "createdAt": "2017-04-09T08:40:51.874Z",
           "desc": "购物车类的抛物线动画（支持上抛或者下抛） && 阻尼动画（弹球动画）",
@@ -695,8 +692,7 @@ Page({
           "who": "lijinshanmx"
         }
       ],
-      "休息视频": [
-        {
+      "休息视频": [{
           "_id": "5c4578ae9d212264ce006f4b",
           "createdAt": "2019-01-21T07:45:50.59Z",
           "desc": "#大早上的你是想笑死我吗 ",
@@ -730,8 +726,7 @@ Page({
           "who": "lijinshanmx"
         }
       ],
-      "前端": [
-        {
+      "前端": [{
           "_id": "5c4bfdc19d212243205cc7f3",
           "createdAt": "2019-01-26T06:27:13.191Z",
           "desc": "这篇文章聊明白管理状态这一堆看起来挺复杂的东西。",
@@ -893,8 +888,7 @@ Page({
           "who": "bym"
         }
       ],
-      "拓展资源": [
-        {
+      "拓展资源": [{
           "_id": "5a5570d8421aa9115b930657",
           "createdAt": "2018-01-10T09:48:08.708Z",
           "desc": "用Python爬取各Android市场应用下载量（3分钟学会）",
@@ -1038,8 +1032,7 @@ Page({
           "who": "lijinshanmx"
         }
       ],
-      "瞎推荐": [
-        {
+      "瞎推荐": [{
           "_id": "5a614fc6421aa9115b930678",
           "createdAt": "2019-01-21T07:51:14.120Z",
           "desc": "12款堪称神器的 Chrome 插件",
@@ -1168,8 +1161,7 @@ Page({
           "who": "lijinshanmx"
         }
       ],
-      "福利": [
-        {
+      "福利": [{
           "_id": "5c4578db9d212264d4501d40",
           "createdAt": "2019-01-21T07:46:35.304Z",
           "desc": "2019-01-21",
@@ -1237,7 +1229,23 @@ Page({
   onReady: function() {
 
   },
-
+  onTabsItemTap: function(event) {
+    wx.previewImage({
+      current: event.currentTarget.dataset.gid[0], // 当前显示图片的http链接
+      urls: event.currentTarget.dataset.gid // 需要预览的图片http链接列表
+    })
+  },
+  //banner大图 
+  onBannerItemTap: function(event) {
+    let index = event.currentTarget.id;
+    let urls = this.data.images.map(function(item) {
+      return item.url;
+    });
+    wx.previewImage({
+      current: urls[index], // 当前显示图片的http链接
+      urls: urls // 需要预览的图片http链接列表
+    })
+  },
   /**
    * 生命周期函数--监听页面显示
    */
