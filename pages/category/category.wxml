@@ -16,7 +16,7 @@
       <view class="cu-item shadow padding-top ">
         <view class="content ">
           <image wx:if="{{item.images!=null}}" data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
-          <view class="desc ">
+          <view class="desc " data-gid='{{item}}' bindtap="onItemClick">
             <view class='text-content '>{{item.desc}}</view>
             <view>
               <view class='cu-tag bg-red light sm round'>{{item.who}}</view>

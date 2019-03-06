@@ -18,8 +18,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log(options)
-    const data = JSON.parse(options.data)
+    const data = JSON.parse(decodeURIComponent(options.data))
+    console.log("跳转后数据" + data)
+    delete data._id
     this.setData({
       data:data
     })
@@ -27,13 +28,13 @@ Page({
     console.log(data)
     const that = this
     const db = wx.cloud.database()
-    db.collection('collects').add({
-      data:data,
-      success(res) {
-        // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-        console.log(res)
-      }
-    })
+    // db.collection('collects').add({
+    //   data:data,
+    //   success(res) {
+    //     // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
+    //     console.log(res)
+    //   }
+    // })
   },
 
   /**

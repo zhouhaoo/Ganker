@@ -10,3 +10,4 @@
     <view class='content' style='top:{{StatusBar}}px;'>{{data.desc}}</view>
   </view>
 </view>
+

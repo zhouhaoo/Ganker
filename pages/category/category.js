@@ -78,6 +78,16 @@ Page({
     })
   }
   ,
+  //跳转详情页
+  onItemClick: function (event) {
+    //避免传输解析错误，进行编码
+    let data = encodeURIComponent(JSON.stringify(event.currentTarget.dataset.gid))
+    let url = '../webview/webView?data=' + data
+    wx.navigateTo({
+      url: url
+    })
+  },
+
   /**
    * 生命周期函数--监听页面显示
    */

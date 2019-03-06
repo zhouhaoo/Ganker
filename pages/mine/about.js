@@ -6,11 +6,7 @@ Page({
    */
   data: {
     StatusBar: app.globalData.StatusBar,
-    CustomBar: app.globalData.CustomBar,
-    tabs: ["选项一", "选项二", "选项三"],
-    activeIndex: 1,
-    sliderOffset: 0,
-    sliderLeft: 0
+    CustomBar: app.globalData.CustomBar
   },
   onLoad: function () {
  
@@ -57,7 +53,17 @@ Page({
   onReachBottom: function () {
 
   },
-
+  CopyLink(e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.link,
+      success: res => {
+        wx.showToast({
+          title: '已复制',
+          duration: 1000,
+        })
+      }
+    })
+  },
   /**
    * 用户点击右上角分享
    */
