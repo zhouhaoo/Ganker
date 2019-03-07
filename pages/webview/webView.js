@@ -10,6 +10,7 @@ Page({
     CustomBar: app.globalData.CustomBar,
     Custom: app.globalData.Custom,
     isloading: true,
+    isCollected: false,
     data: {},
     timer: undefined
   },
@@ -22,21 +23,75 @@ Page({
     console.log("跳转后数据" + data)
     delete data._id
     this.setData({
-      data:data
+      data: data
     })
-   
     console.log(data)
     const that = this
     const db = wx.cloud.database()
-    // db.collection('collects').add({
-    //   data:data,
-    //   success(res) {
-    //     // res 是一个对象，其中有 _id 字段标记刚创建的记录的 id
-    //     console.log(res)
-    //   }
-    // })
+    db.collection('collects').where({
+      desc: that.data.data.desc,
+      createdAt: that.data.data.createdAt
+    }).get({
+      success(res) {
+        // res.data 是包含以上定义的两条记录的数组
+        console.log(res.data)
+        that.setData({
+          isCollected: true,
+          'data._id': res.data[0]._id
+        })
+      }
+    })
   },
+  //收藏
+  collect: function(event) {
+    wx.showLoading()
+    const that = this
+    const db = wx.cloud.database()
+    if (!this.data.isCollected) {
+      db.collection('collects').add({
+        data: that.data.data,
+        success(res) {
+          wx.hideLoading()
+          that.setData({
+            isCollected: true,
+            'data._id': res._id
+          })
+          wx.showToast({
+            title: '收藏成功',
+            duration: 1000,
+          })
+          console.log(res)
+        }
+      })
+    } else {
+      console.log(this.data.data)
+      db.collection('collects').doc(this.data.data._id).remove({
+        success(res) {
+          console.log(res)
+          wx.hideLoading()
+          that.setData({
+            isCollected: false
+          })
 
+        }
+      })
+    }
+  },
+  changeCollectStatus: function() {
+
+  },
+  //复制url到剪切板
+  copyUrl: function(event) {
+    wx.setClipboardData({
+      data: event.currentTarget.dataset.link,
+      success: res => {
+        wx.showToast({
+          title: '已复制url',
+          duration: 1000,
+        })
+      }
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

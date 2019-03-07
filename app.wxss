@@ -1,6 +1,5 @@
 @import 'style/icon.wxss';
 @import 'style/colorui.wxss';
-@import 'towxml/style/main.wxss';
 /**app.wxss**/
 
 .nav-list {

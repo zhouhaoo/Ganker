@@ -1,6 +1,6 @@
 <!--pages/mine/about.wxml-->
 <view class='UCenter-bg bg-gradual-blue'>
-  
+
   <view class='text-xl'>Ganker
     <text class='text-df'>Beta</text>
   </view>
@@ -12,21 +12,21 @@
 
 <view class='padding flex text-center text-grey bg-white shadow-warp'>
   <view class='flex flex-sub flex-direction solid-right'>
-    <view class="text-xxl text-orange">12</view>
+    <view class="text-xxl text-orange">4531</view>
     <view class="margin-top-sm">
       <text class='icon-attentionfill'></text> View</view>
   </view>
   <view class='flex flex-sub flex-direction solid-right'>
-    <view class="text-xxl text-blue">1212</view>
+    <view class="text-xxl text-blue">4671</view>
     <view class="margin-top-sm">
       <text class='icon-favorfill'></text> Star</view>
   </view>
   <view class='flex flex-sub flex-direction'>
-    <view class="text-xxl text-green">1212</view>
+    <view class="text-xxl text-green">543</view>
     <view class="margin-top-sm">
       <text class='icon-fork'></text> Fork</view>
   </view>
-</view> 
+</view>
 
 <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg">
   <view class="cu-item arrow">
@@ -35,12 +35,12 @@
       <text class='text-grey'>GitHub</text>
     </view>
   </view>
-  <view class="cu-item arrow">
+  <!-- <view class="cu-item arrow">
     <navigator class='content' url='../log/log' hover-class='none'>
       <text class='icon-formfill text-green'></text>
       <text class='text-grey'>日志</text>
     </navigator>
-  </view>
+  </view> -->
 
 </view>
 
