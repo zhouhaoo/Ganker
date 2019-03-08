@@ -10,7 +10,7 @@ UI包使用ColorUi：http://www.color-ui.com
 
 #### 部分页面截图
 
-|  ![](/snapshot/home.png)    |   ![](/snapshot/category.png)    |   ![](/snapshot/collection.png)    |   ![](/snapshot/about.png)    |
-| :--: | :--: | :--: | :--: |
-| 最新 | 分类 | 收藏 | 关于 |
+|  ![](/snapshot/home.png)    |   ![](/snapshot/category.png)    |   ![](/snapshot/collection.png)    |
+| :--: | :--: | :--: | 
+| 最新 | 分类 | 收藏 | 
 
