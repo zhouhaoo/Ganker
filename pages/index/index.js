@@ -42,7 +42,7 @@ Page({
     const that = this;
     //今日资源api
     this.setLoadState(true)
-    apiService.oneDayData('2019/01/03').then(function(res) {
+    apiService.todayData().then(function(res) {
       console.log(res)
       that.setLoadState(false)
       if (!res.error) {
