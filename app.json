@@ -1,13 +1,13 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/detail/detail",
+    "pages/log/log",
     "pages/category/category",
     "pages/collection/collection",
     "pages/search/search",
     "pages/mine/about",
-    "pages/webview/webView"
+    "pages/webview/webView",
+    "pages/history/history"
   ],
   "tabBar": {
     "color": "#8a8a8a",

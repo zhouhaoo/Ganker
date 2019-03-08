@@ -2,6 +2,9 @@
 <wxs module="tools" src="../../tools/dataTool.wxs"></wxs>
 <view class="cu-custom" style="height:{{CustomBar}}px;">
   <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+  <navigator class='action' url="../search/search" delta="1" hover-class="none" style='width:{{Custom.width/2}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-search'></text>
+    </navigator>
     <view class='content text-bold' style='top:{{StatusBar}}px;'>分类</view>
   </view>
 </view>

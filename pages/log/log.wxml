@@ -1,0 +1,42 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='icon-back'></text> <text class='text-cut'>日志</text>
+    </navigator>
+  </view>
+</view>
+<view class="cu-timeline">
+  <view class='cu-item text-blue'>
+    <view class="bg-gradual-grey content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.1.0</view>
+        <view class="cu-tag line-white">待开发</view>
+      </view>
+      <view class='margin-top-sm text-content'>
+        <view>1.首页新增日期选择功能</view>
+        <view>2.新增干货搜索功能</view>
+        <view>3.新增首页轮播图随机设置</view>
+      </view>
+    </view>
+  </view>
+  <view class='cu-item text-blue'>
+    <view class="bg-grey content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.5</view>
+        <view class="cu-tag line-white">待开发</view>
+      </view>
+      <view class='margin-top-sm text-content'>1.首页tab添加刷新功能</view>
+       <view class='margin-top-sm text-content'>2.分类tab添加下拉加载更多</view>
+       <view class='margin-top-sm text-content'>3.收藏tab添加分页加载</view>
+    </view>
+  </view>
+  <view class='cu-item text-blue'>
+    <view class="bg-blue content shadow-blur">
+      <view class="cu-capsule radius">
+        <view class="cu-tag bg-white text-blue">v1.0.3</view>
+        <view class="cu-tag line-white">2019/03/07</view>
+      </view>
+      <view class='margin-top-sm text-content'>1.0版本上线</view>
+    </view>
+  </view>
+</view>

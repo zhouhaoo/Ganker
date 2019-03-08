@@ -6,6 +6,7 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    Custom: app.globalData.Custom,
     DotStyle: true,
     cardCur: 0,
     indicatorDots: true,
@@ -28,7 +29,7 @@ Page({
     const that = this;
     //今日资源api
     wx.showLoading()
-    apiService.todayData().then(function(res) {
+    apiService.oneDayData('2019/01/03').then(function(res) {
       console.log(res)
       wx.hideLoading()
       if (!res.error) {

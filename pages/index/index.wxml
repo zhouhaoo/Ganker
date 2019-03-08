@@ -2,11 +2,15 @@
 <wxs module="tools" src="../../tools/dataTool.wxs"></wxs>
 <view class="cu-custom" style="height:{{CustomBar}}px;">
   <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' url="../history/history" delta="1" hover-class="none" style='width:{{Custom.width/2}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-time'></text>
+    </navigator>
     <view class='content text-bold' style='top:{{StatusBar}}px;'>Ganker</view>
   </view>
 </view>
+
 <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" indicator-color="#8799a3" indicator-active-color="#0081ff">
-  <swiper-item wx:for="{{images}}" data-gid='{{images}}' bindtap="onBannerItemTap"wx:for-item="item" wx:key class="{{cardCur==index?'cur':''}}" id="{{index}}">
+  <swiper-item wx:for="{{images}}" data-gid='{{images}}' bindtap="onBannerItemTap" wx:for-item="item" wx:key class="{{cardCur==index?'cur':''}}" id="{{index}}">
     <view class='bg-img shadow-blur' style="background-image:url({{item.url}})"></view>
   </swiper-item>
 </swiper>
@@ -19,10 +23,10 @@
   </view>
   <block wx:for="{{results[title]}}" wx:for-item="item" wx:key="{{item._id}}">
     <view class="cu-card article margin-bottom no-card">
-      <view class="cu-item shadow padding-top " >
+      <view class="cu-item shadow padding-top ">
         <view class="content ">
           <image wx:if="{{item.images!=null}}" data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
-          <view class="desc "  data-gid='{{item}}' bindtap="onItemClick">
+          <view class="desc " data-gid='{{item}}' bindtap="onItemClick">
             <view class='text-content '>{{item.desc}}</view>
             <view>
               <view class='cu-tag bg-red light sm round'>{{item.who}}</view>

@@ -38,12 +38,34 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 3,
 			"list": [
 				{
-					"id": -1,
-					"name": "about",
+					"id": 0,
+					"name": "关于",
 					"pathName": "pages/mine/about",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 1,
+					"name": "干货历史日期",
+					"pathName": "pages/history/history",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "分类",
+					"pathName": "pages/category/category",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "日志",
+					"pathName": "pages/log/log",
+					"query": "",
 					"scene": null
 				}
 			]
