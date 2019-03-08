@@ -1,6 +1,5 @@
-
-var tools={
-  sub: function (length, val) {
+var tools = {
+  sub: function(length, val) {
     if (val.length == 0 || val == undefined) {
       return;
     }
@@ -9,12 +8,13 @@ var tools={
     } else {
       return val;
     }
+  },
+  substring: function(start, end, value) {
+    return value.substring(start, end)
   }
 }
 
-
-
-
 module.exports = {
-  dataTool: tools.sub
+  dataTool: tools.sub,
+  substring: tools.substring
 }

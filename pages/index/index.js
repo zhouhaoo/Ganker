@@ -27,7 +27,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.initData()
+    if (app.globalData.selectDay==null){
+      this.initData()
+      return
+    }
+    console.log(app.globalData.selectDay)
+    this.getHistoryData(app.globalData.selectDay)
+    app.globalData.selectDay = null
   },
 
   setLoadState: function(state) {
@@ -59,6 +65,29 @@ Page({
       that.setLoadState(false)
     })
   },
+  //获取指定日期的数据
+  getHistoryData: function (day) {
+    const that = this;
+    this.setLoadState(true)
+    apiService.oneDayData(day).then(function (res) {
+      console.log(res)
+      that.setLoadState(false)
+      if (!res.error) {
+        that.setData({
+          category: res.category,
+          results: res.results,
+          android: res.results.Android,
+          images: res.results.福利
+        })
+      } else {
+        console.log('请求错误')
+      }
+
+    }).catch(function (e) {
+      that.setLoadState(false)
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

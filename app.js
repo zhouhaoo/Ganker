@@ -17,6 +17,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    shareTitle: '可能是最好用的gank.io客户端'
+    shareTitle: '可能是最好用的gank.io客户端',
+    selectDay:null
   }
 })
