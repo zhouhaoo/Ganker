@@ -16,6 +16,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    shareTitle: '可能是最好用的gank.io客户端'
   }
 })

@@ -19,19 +19,32 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     category: [],
     images: [],
-    results: {}
+    results: {},
+    isLoad: true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    this.initData()
+  },
+
+  setLoadState: function(state) {
+    if(!state){
+      wx.stopPullDownRefresh()
+    }
+    this.setData({
+      isLoad: state
+    })
+  },
+  initData: function() {
     const that = this;
     //今日资源api
-    wx.showLoading()
+    this.setLoadState(true)
     apiService.oneDayData('2019/01/03').then(function(res) {
       console.log(res)
-      wx.hideLoading()
+      that.setLoadState(false)
       if (!res.error) {
         that.setData({
           category: res.category,
@@ -43,10 +56,9 @@ Page({
         console.log('请求错误')
       }
     }).catch(function(e) {
-      wx.hideLoading()
+      that.setLoadState(false)
     })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -106,7 +118,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+      this.initData()
   },
 
   /**
@@ -120,7 +132,8 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
-
+    return {
+      title: app.globalData.shareTitle
+    }
   },
-
 })

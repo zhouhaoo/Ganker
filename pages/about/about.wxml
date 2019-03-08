@@ -1,0 +1,21 @@
+<!--pages/about/about.wxml-->
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='icon-back'></text>
+      <text class='text-cut'>关于</text>
+    </navigator>
+  </view>
+</view>
+<view class='margin-xl bg-white padding-xl radius shadow-lg'>
+  <view class='text-center margin-bottom text-lg  text-grey'>关于Ganker</view>
+  <view class='text-content'>
+    <view class='margin-top-sm'>该项目是我学习小程序的第一个项目，接口全部数据来源于<text class='text-lg text-blue'>http://gank.io/api</text>。</view>
+    <view class='margin-top-sm'>项目UI使用的是
+      <text class='text-xl text-red'>ColorUI组件库。</text>
+    </view>
+    <view class='margin-top-sm'>收藏功能使用的小程序·云开发的功能。</view>
+    <view class='margin-top-sm'>由于小程序暂不支持个人类型的开发者打开web-view 组件，所以需要查看项目详情，请点击页面内下方复制按钮，到浏览器打开。</view>
+    <view class='margin-top-sm'>更多功能敬请期待！</view>
+  </view>
+</view>

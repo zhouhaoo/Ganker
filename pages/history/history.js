@@ -9,7 +9,8 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
-    history:[]
+    history: [],
+    isLoad: true
   },
 
   /**

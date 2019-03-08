@@ -4,5 +4,8 @@
     <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
       <text class='icon-back'></text> 干货日期
     </navigator>
+     <view class='action'>
+      <view class="cu-load load-icon {{isLoad?'loading':'over'}}"></view>
+    </view>
   </view>
 </view>

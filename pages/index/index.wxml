@@ -6,6 +6,9 @@
       <text class='icon-time'></text>
     </navigator>
     <view class='content text-bold' style='top:{{StatusBar}}px;'>Ganker</view>
+    <view class='action'>
+      <view class="cu-load load-icon {{isLoad?'loading':'over'}}"></view>
+    </view>
   </view>
 </view>
 

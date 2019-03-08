@@ -35,7 +35,13 @@
       <text class='text-grey'>GitHub</text>
     </view>
   </view>
-   <view class="cu-item arrow">
+  <view class="cu-item arrow">
+    <navigator class='content' url='../about/about' hover-class='none'>
+      <text class='icon-discover text-green'></text>
+      <text class='text-grey'>关于</text>
+    </navigator>
+  </view>
+  <view class="cu-item arrow">
     <navigator class='content' url='../log/log' hover-class='none'>
       <text class='icon-formfill text-green'></text>
       <text class='text-grey'>日志</text>
@@ -47,13 +53,7 @@
       <text class='text-grey'>意见反馈</text>
     </button>
   </view>
- 
-<!-- <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
-  获取用户信息
-</button>
-<button open-type="openSetting">打开授权设置页</button>
-<button open-type="feedback">意见反馈</button>
-<button open-type="getPhoneNumber">意见反馈</button> -->
+
 </view>
 
 <view class='cu-tabbar-height'></view>

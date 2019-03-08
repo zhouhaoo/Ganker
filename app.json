@@ -7,7 +7,8 @@
     "pages/search/search",
     "pages/mine/about",
     "pages/webview/webView",
-    "pages/history/history"
+    "pages/history/history",
+    "pages/about/about"
   ],
   "tabBar": {
     "color": "#8a8a8a",
