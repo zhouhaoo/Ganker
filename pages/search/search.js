@@ -1,5 +1,6 @@
 // pages/search/search.js
 const app = getApp()
+const apiService = require('../../utils/apiService')
 Page({
 
   /**
@@ -8,6 +9,10 @@ Page({
   data: {
     StatusBar: app.globalData.StatusBar,
     CustomBar: app.globalData.CustomBar,
+    results: [],
+    searchText: "",
+    page : 1,
+    isRefresh: false
   },
 
   /**
@@ -15,6 +20,65 @@ Page({
    */
   onLoad: function (options) {
 
+  },
+
+  /**
+   * 搜索框的输入
+   */
+  searchItem(e) {
+    let key = e.detail.value.toLowerCase();
+    const that = this;
+    that.setData({ 
+      searchText : key
+    })
+  },
+
+  /**
+   * 搜索
+   */
+  search: function (event) {
+    const that = this;
+    if (typeof this.data.searchText == "undefined" || this.data.searchText == null ||    this.data.searchText == ""){
+      wx.showToast({
+        title: '空的',
+      })
+    }
+    this.getdata(this.data.searchText,"android",this.data.page);
+  }, 
+  
+  /**
+   * 获取搜索结果
+   */
+  getdata: function (keyWord, category,page) {
+    const that = this;
+    if (!this.data.isRefresh) {
+      wx.showLoading()
+    }
+    apiService.search(keyWord, category, page).then(function(res){
+      console.log(res)
+      wx.hideLoading()
+      if (!res.error) {
+        that.setData({
+          results: res.results,
+          isRefresh: false
+        })
+      } else {
+        console.log('请求错误')
+        that.setData({
+          results: [],
+          isRefresh: false
+        })
+      }
+    }).catch(function (e) {
+      if (that.data.isRefresh) {
+        wx.stopPullDownRefresh()
+        that.setData({
+          isRefresh: false
+        })
+      } else {
+        wx.hideLoading()
+      }
+    })
   },
 
   /**
@@ -56,7 +120,12 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    this.setData({
+      isRefresh: true,
+      page: 2
+    })
 
+    this.getdata(this.data.searchText, "android", this.data.page);
   },
 
   /**

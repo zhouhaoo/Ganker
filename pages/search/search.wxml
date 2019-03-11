@@ -1,4 +1,5 @@
 <!--pages/search/search.wxml-->
+<wxs module="tools" src="../../tools/dataTool.wxs"></wxs>
 <view class="cu-custom" style="height:{{CustomBar}}px;">
   <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
     <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
@@ -14,12 +15,35 @@
     </view>
     <view class='search-form round'>
       <text class="icon-search"></text>
-      <input type="text" placeholder="搜索干货" focus='true' confirm-type="search"></input>
+      <input type="text" placeholder="搜索干货" focus='true' confirm-type="search" bindinput='searchItem'></input>
     </view>
     <view class='action'>
-      <button class='cu-btn bg-green shadow-blur round'>搜索</button>
+      <button class='cu-btn bg-green shadow-blur round' bindtap='search' >搜索</button>
     </view>
   </view>
-
-
 </view>
+
+<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{tabs}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+    {{tabs[index]}}
+  </view>
+</scroll-view>
+<view>
+  <block wx:for="{{results}}" wx:for-item="item" wx:key="{{item._id}}">
+    <view class="cu-card article margin-top no-card">
+      <view class="cu-item shadow padding-top ">
+        <view class="content ">
+          <image wx:if="{{item.images!=null}}" data-gid='{{item.images}}' bindtap="onTabsItemTap" src="{{item.images[0]}}" mode="aspectFill"></image>
+          <view class="desc " data-gid='{{item}}' bindtap="onItemClick">
+            <view class='text-content '>{{item.desc}}</view>
+            <view>
+              <view class='cu-tag bg-red light sm round'>{{item.who}}</view>
+              <view class='cu-tag bg-green light sm round'>{{tools.dataTool(10,item.publishedAt)}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>
+<view class="cu-load hide text-cyan {{isRefresh?'loading':'erro'}}"></view>
