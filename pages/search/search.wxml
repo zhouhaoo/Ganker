@@ -23,11 +23,6 @@
   </view>
 </view>
 
-<scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
-  <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{tabs}}" wx:key bindtap='tabSelect' data-id="{{index}}">
-    {{tabs[index]}}
-  </view>
-</scroll-view>
 <view>
   <block wx:for="{{results}}" wx:for-item="item" wx:key="{{item._id}}">
     <view class="cu-card article margin-top no-card">
