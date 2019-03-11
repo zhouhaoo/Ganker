@@ -55,7 +55,6 @@ Page({
         that.setData({
           category: res.category,
           results: res.results,
-          android: res.results.Android,
           images: res.results.福利
         })
       } else {
@@ -75,9 +74,25 @@ Page({
       if (!res.error) {
         that.setData({
           category: res.category,
-          results: res.results,
-          android: res.results.Android,
-          images: res.results.福利
+          results: res.results
+         
+        })
+      } else {
+        console.log('请求错误')
+      }
+
+    }).catch(function (e) {
+      that.setLoadState(false)
+    })
+    //首页选择日期后随机的banner图
+    var page = Math.floor(Math.random() * 134 + 1)
+    apiService.banner(page).then(function (res) {
+      console.log(res)
+      that.setLoadState(false)
+      if (!res.error) {
+        that.setData({
+          images: res.results
+         
         })
       } else {
         console.log('请求错误')

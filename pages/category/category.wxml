@@ -31,3 +31,4 @@
     </view>
   </block>
 </view>
+<view class="cu-load hide text-cyan {{isRefresh?'loading':'erro'}}"></view>

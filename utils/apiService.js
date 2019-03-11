@@ -67,6 +67,10 @@ module.exports = {
   category: (category,page) => {
     return request('/data/'+category+'/20/'+page, 'get')
   },
+  //首页图
+  banner: (page) => {
+    return request('/data/福利/5/' + page, 'get')
+  },
   //每日数据：http://gank.io/api/day/2015/08/06
   oneDayData: (date) => {
     return request('/day/' + date, 'get')
