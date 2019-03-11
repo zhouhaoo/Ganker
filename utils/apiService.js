@@ -31,19 +31,19 @@ const request = (url, method, data) => {
 /**
  * 小程序的promise没有finally方法，自己扩展下
  */
-Promise.prototype.finally = function(callback) {
+Promise.prototype.finally = function (callback) {
   var Promise = this.constructor;
   return this.then(
-    function(value) {
+    function (value) {
       Promise.resolve(callback()).then(
-        function() {
+        function () {
           return value;
         }
       );
     },
-    function(reason) {
+    function (reason) {
       Promise.resolve(callback()).then(
-        function() {
+        function () {
           throw reason;
         }
       );
@@ -60,12 +60,12 @@ module.exports = {
   // 搜索 API http://gank.io/api/search/query/listview/category/Android/count/10/page/1 
   //category 后面可接受参数 all | Android | iOS | 休息视频 | 福利 | 拓展资源 | 前端 | 瞎推荐 | App
   // count 最大 50
-  search: () => {
-    return request('/search/query/listview/category', 'get')
+  search: (keyWord, category, page) => {
+    return request('/search/query/' + keyWord + '/category/' + category +'/count/10/page/'+page, 'get')
   },
   // http://gank.io/api/data/福利/10/1
-  category: (category,page) => {
-    return request('/data/'+category+'/20/'+page, 'get')
+  category: (category, page) => {
+    return request('/data/' + category + '/20/' + page, 'get')
   },
   //首页图
   banner: (page) => {
@@ -76,7 +76,7 @@ module.exports = {
     return request('/day/' + date, 'get')
   },
   //历史数据日期 http://gank.io/api/day/history 
-   history: () => {
-     return request('/day/history', 'get')
+  history: () => {
+    return request('/day/history', 'get')
   }
 }
