@@ -53,7 +53,7 @@ Page({
       that.setLoadState(false)
       if (!res.error) {
         that.setData({
-          category: res.category,
+          category: res.category.sort(),
           results: res.results,
           images: res.results.福利
         })
@@ -73,7 +73,7 @@ Page({
       that.setLoadState(false)
       if (!res.error) {
         that.setData({
-          category: res.category,
+          category: res.category.sort(),
           results: res.results
          
         })
