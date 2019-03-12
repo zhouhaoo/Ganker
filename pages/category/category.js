@@ -14,7 +14,8 @@ Page({
     scrollLeft: 0,
     tabs: ["Android", "iOS", "前端", "App", "拓展资源", "瞎推荐"],
     results: [],
-    isRefresh: false
+    isRefresh: false,
+    page:1
   },
 
   onLoad: function() {
