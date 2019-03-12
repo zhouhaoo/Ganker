@@ -3,7 +3,7 @@
 <view class="cu-custom" style="height:{{CustomBar}}px;">
   <view class="cu-bar fixed bg-gradual-blue" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
     <navigator class='action' url="../history/history" delta="1" hover-class="none" style='width:{{Custom.width/2}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
-      <text class='icon-time'></text>
+      <text class='icon-discover'></text>
     </navigator>
     <view class='content text-bold' style='top:{{StatusBar}}px;'>Ganker</view>
     <view class='action'>
