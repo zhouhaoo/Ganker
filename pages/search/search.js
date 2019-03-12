@@ -122,7 +122,7 @@ Page({
   onReachBottom: function () {
     this.setData({
       isRefresh: true,
-      page: 2
+      page: this.data.page + 1
     })
 
     this.getdata(this.data.searchText, "android", this.data.page);
