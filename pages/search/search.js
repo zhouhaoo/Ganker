@@ -15,7 +15,8 @@ Page({
     CustomBar: app.globalData.CustomBar,
     results: [],
     searchText: "",
-    isRefresh: false
+    isRefresh: false,
+    isLoading: false
   },
 
   /**
@@ -48,6 +49,7 @@ Page({
     }
     this.getdata(this.data.searchText,"android",page);
   },
+
   //跳转详情页
   onItemClick: function (event) {
     //避免传输解析错误，进行编码
@@ -133,7 +135,9 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    this.setData({
+      isRefresh: true
+    })
   },
 
   /**
@@ -142,8 +146,7 @@ Page({
   onReachBottom: function () {
     page = page + 1
     this.setData({
-      isRefresh: true,
-      
+      isLoading: true
     })
     
     this.getdata(this.data.searchText, "android", page);
