@@ -1,6 +1,10 @@
 // pages/search/search.js
 const app = getApp()
 const apiService = require('../../utils/apiService')
+/**
+ * 页数变量
+ */
+var page = 1
 Page({
 
   /**
@@ -11,7 +15,6 @@ Page({
     CustomBar: app.globalData.CustomBar,
     results: [],
     searchText: "",
-    page : 1,
     isRefresh: false
   },
 
@@ -40,28 +43,45 @@ Page({
     const that = this;
     if (typeof this.data.searchText == "undefined" || this.data.searchText == null ||    this.data.searchText == ""){
       wx.showToast({
-        title: '空的',
+        title: '请输入要搜索的内容',
       })
     }
-    this.getdata(this.data.searchText,"android",this.data.page);
-  }, 
+    this.getdata(this.data.searchText,"android",page);
+  },
+  //跳转详情页
+  onItemClick: function (event) {
+    //避免传输解析错误，进行编码
+    let data = encodeURIComponent(JSON.stringify(event.currentTarget.dataset.gid))
+    let url = '../webview/webView?data=' + data
+    wx.navigateTo({
+      url: url
+    })
+  },
   
   /**
    * 获取搜索结果
    */
-  getdata: function (keyWord, category,page) {
+  getdata: function (keyWord, category,pages) {
     const that = this;
-    if (!this.data.isRefresh) {
+    if (!this.data.isRefresh && page == 1) {
       wx.showLoading()
     }
-    apiService.search(keyWord, category, page).then(function(res){
+    apiService.search(keyWord, category, pages).then(function(res){
       console.log(res)
       wx.hideLoading()
       if (!res.error) {
-        that.setData({
-          results: res.results,
-          isRefresh: false
-        })
+        if (page > 1) {
+          that.setData({
+            results: that.data.results.concat(res.results),
+            isRefresh: false,
+            isLoading: false
+          })
+        } else {
+          that.setData({
+            results: res.results,
+            isRefresh: false
+          })
+        }
       } else {
         console.log('请求错误')
         that.setData({
@@ -120,12 +140,13 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    page = page + 1
     this.setData({
       isRefresh: true,
-      page: this.data.page + 1
+      
     })
-
-    this.getdata(this.data.searchText, "android", this.data.page);
+    
+    this.getdata(this.data.searchText, "android", page);
   },
 
   /**
