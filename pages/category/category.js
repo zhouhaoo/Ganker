@@ -2,6 +2,10 @@
 var sliderWidth = 96; // 需要设置slider的宽度，用于计算中间位置
 const app = getApp()
 const apiService = require('../../utils/apiService')
+/**
+ * 页数变量
+ */
+var page = 1
 Page({
 
   /**
@@ -15,7 +19,7 @@ Page({
     tabs: ["Android", "iOS", "前端", "App", "拓展资源", "瞎推荐"],
     results: [],
     isRefresh: false,
-    page:1
+    isLoading:false
   },
 
   onLoad: function() {
@@ -43,10 +47,18 @@ Page({
       console.log(res)
       wx.hideLoading()
       if (!res.error) {
-        that.setData({
-          results: res.results,
-          isRefresh: false
-        })
+        if(page>1){
+          that.setData({
+            results: that.data.results.concat(res.results),
+            isRefresh: false,
+            isLoading:false
+          })
+        }else{
+          that.setData({
+            results: res.results,
+            isRefresh: false
+          })
+        }
       } else {
         console.log('请求错误')
         that.setData({
@@ -123,9 +135,11 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
+    page=page+1
     this.setData({
-      isRefresh: true
+      isLoading: true
     })
+    this.getdata(page)
   },
 
   /**
