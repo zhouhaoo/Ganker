@@ -3,6 +3,6 @@
     <view class='icon-cu-image'>
       <image src='{{selected === index ? item.selectedIconPath : item.iconPath}}' class='{{selected === index ? "animation" : "animation"}}'></image>
     </view>
-    <view class='{{selected === index ? "text-green" : "text-gray"}}'>{{item.text}}</view>
+    <view class='{{selected === index ? "text-blue" : "text-gray"}}'>{{item.text}}</view>
   </view>
 </view>

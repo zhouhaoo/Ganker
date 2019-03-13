@@ -42,6 +42,7 @@
       }
     ]
   },
+  "usingComponents": {},
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1296db",
