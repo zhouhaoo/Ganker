@@ -7,6 +7,10 @@
 				"type": "file",
 				"value": "/README.md"
 			},
+      {
+        "type": "file",
+        "value": "/LICENSE"
+      },
 			{
 				"type": "folder",
 				"value": "snapshot"
